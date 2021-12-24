@@ -138,8 +138,6 @@ namespace Cleverence.Server.Core
 						_ = SendAsync(Socket); //GetCount() by task ЧИТАТЬ(Отправлять)
 					}
 
-					//Socket.BeginReceive(response.Buffer, 0, response.BufferSize, 0, ReciveCallback, response);
-
 					allDone.WaitOne(); //Контроль потоков внутри самого сервера
 				}
 			}
@@ -154,68 +152,6 @@ namespace Cleverence.Server.Core
 				});
 			}
 		}
-
-		//private void AcceptCallback(IAsyncResult asyncResult)
-		//{
-		//	try
-		//	{
-		//		//_logger.LogInformation($"[{Now}] [{nameof(AcceptCallback)}] Start");
-
-		//		//var listener = asyncResult.AsyncState as Socket;
-				
-		//		//Socket = listener.EndAccept(asyncResult);
-
-		//		//// Wait until a connection is made before continuing.
-		//		//_logger.LogInformation($"[{Now}] [{nameof(AcceptAsync)}] Connection complete!");
-
-		//		// Create the state object.
-		//		//var handler = new ClientResponse<Message>() { WorkSocket = Socket };
-		//		//Socket.BeginReceive(handler.Buffer, 0, handler.BufferSize, 0, ReciveCallback, handler);
-		//		//allDone.WaitOne(); //Send signal to AcceptAsync() -> WaitOne()
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		_logger.LogError($"[{Now}] [{nameof(AcceptCallback)}] Handler Error! {ex.Message}");
-		//		throw;
-		//	}
-		//	_logger.LogInformation($"[{Now}] [{nameof(AcceptCallback)}] End!");
-		//}
-
-		//private void ReciveCallback(IAsyncResult asyncResult)
-		//{
-		//	_logger.LogInformation($"[{Now}] [{nameof(ReciveCallback)}] Start");
-
-		//	var response = asyncResult.AsyncState as ClientResponse<Message>;
-		//	response.Data ??= new Message();
-		//	var socket = response.WorkSocket;
-
-		//	// Read data from the client socket. 
-		//	socket.EndReceive(asyncResult);
-
-		//	response.Data = JsonConvert.DeserializeObject<Message>(
-		//					Encoding.UTF8.GetString(response.Buffer));
-
-		//	_logger.LogInformation($"[{Now}] [{nameof(ReciveCallback)}] " +
-		//						   $"Read {response.Data.Content.Length} bytes from socket. \n\t" +
-		//						   $"Data : {response.Data.Content}");
-
-		//	if (response.Data.Role == Role.Sender)
-		//	{
-		//		while (_blockCollection.IsAddingCompleted == false)
-		//		{
-		//			_blockCollection.Add(response.Data); // Данные от клиента 
-		//			_ = SendAsync(Socket); // Отправляем обратно обновленную коллекцию
-		//			_blockCollection.CompleteAdding();
-		//		} 
-		//	}
-		//	else
-		//	{
-		//		_ = SendAsync(Socket); //GetCount() by task ЧИТАТЬ(Отправлять)
-		//	}
-
-		//	allDone.WaitOne();
-		//	_logger.LogInformation($"[{Now}] [{nameof(ReciveCallback)}] End!");
-		//}
 
 		//-------------------------------------------------------------------------------------------
 		//-------------------------------------------------------------------------------------------

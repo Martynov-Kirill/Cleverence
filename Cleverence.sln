@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleverence.Entities", "Cleverence.Entities\Cleverence.Entities.csproj", "{5221F7DA-C6FD-4C41-B43E-871C0C718C82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverence.ClientsStartUp", "Cleverence.ClientsStartUp\Cleverence.ClientsStartUp.csproj", "{FDF4D2C5-B697-4958-818E-3C80D7703E1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleverence.ClientsStartUp", "Cleverence.ClientsStartUp\Cleverence.ClientsStartUp.csproj", "{FDF4D2C5-B697-4958-818E-3C80D7703E1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
