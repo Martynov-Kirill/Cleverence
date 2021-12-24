@@ -163,9 +163,6 @@ namespace Cleverence.Server.Core
 	
 				var byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_blockCollection));
 
-				// Begin sending the data to the remote device.
-				//handler.BeginSend(byteData, 0, byteData.Length, 0, SendCallback, handler);
-
 				var reciveSocket = await handler.SendAsync(byteData, 0);
 
 				allDone.Set();
